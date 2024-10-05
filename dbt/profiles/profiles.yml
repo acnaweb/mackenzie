@@ -1,0 +1,25 @@
+data_pipeline_postgres:
+  outputs:
+    dev:
+      dbname: bronze
+      host: localhost
+      pass: my_pwd
+      port: 5432
+      schema: public
+      threads: 1
+      type: postgres
+      user: new_user
+  target: dev
+data_transformation:
+  outputs:
+    dev:
+      host: '{{ env_var(''DBT_ORACLE_HOST'') }}'
+      password: '{{ env_var(''DBT_ORACLE_PASSWORD'') }}'
+      port: 1521
+      protocol: tcp
+      schema: '{{ env_var(''DBT_ORACLE_SCHEMA'') }}'
+      service: '{{ env_var(''DBT_ORACLE_SERVICE'') }}'
+      threads: 1
+      type: oracle
+      user: '{{ env_var(''DBT_ORACLE_USER'') }}'
+  target: dev

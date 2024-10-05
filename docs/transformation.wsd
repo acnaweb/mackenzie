@@ -1,0 +1,44 @@
+@startmindmap
+* Transformation
+** Problemas
+*** Hot database
+*** Frequencia
+**** Record by record
+**** Windowing
+**** Auth-N Auth-Z
+**** Diversidade de Vendor
+**** Datasources
+*** Modelo de entrada na base analítica
+
+** Tasks (Ready)
+*** Tasks (Cript)
+**** De/Criptografia
+*** Tasks (Cleansing/Limpeza)
+**** Outlier
+**** Enconding
+**** Deduplicação
+**** Dados Nulos
+*** Tasks (Typing/Tipagem)
+**** Casting (Conversão)
+*** Tasks (Mapping/De Para)
+**** Graus (Temperatura)
+**** Sexo 
+**** Moeda
+**** Unidade de medida
+**** Unidade de federação
+**** Data/Hora
+
+** Tasks (Gold)
+*** Tasks (Padronização)
+**** Aplicar padrão de capitalization
+
+*** Tasks (Surrogate Key/Primary Key)
+**** Unificação de entidades
+
+*** Tasks (Enrich)
+**** Look up
+**** Decomposição
+
+*** Tasks (Agregations/Agregações)
+**** Group by
+@endmindmap

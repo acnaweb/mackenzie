@@ -1,0 +1,43 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(user, "user", "Business User")
+Container(dashboard, "Dashboard", "Power BI", "Obtenção de insights a partir de dados")
+
+System_Boundary(transformation, "Data Transformation") {
+    Container(tasks_silver, "Tasks Silver", "Algoritmos", "Lógica de Transformação para camada silver")
+    Container(tasks_gold, "Tasks Gold", "Algoritmos", "Lógica de Transformação para camada gold")
+}
+
+System_Boundary(ingestion, "Data Ingestion") {
+    Container(data_ingestion, "Tools", "Algoritmos", "Ingestão de dados")
+    Container(replicacao, "Replicação", "Builtin", "Cópia de dados AS IS")
+}
+
+System_Boundary(destinations, "Destinations") {
+    ContainerDb(bronze, "Bronze", "Dados crus (raw)")
+    ContainerDb(silver, "Silver", "Dados confiáveis")
+    ContainerDb(gold, "Gold", "Repositório de dados analíticos")
+}
+
+System_Boundary(sources, "Data Sources") {
+    ContainerDb(transational_db, "Transacional Database", "Repositório de dados transacionais")
+    ContainerDb(object_store, "Data lake", "Data lake")
+    ContainerDb(stream, "Stream", "Kafka/PubSub/RabbitMQ")
+    ContainerDb(webhook, "Web Hook", "API")
+    ContainerDb(iot, "IoT", "IoT")
+
+}
+
+
+Rel(ingestion, sources, "", "Ler dados dos sistemas operacionais de origem")
+Rel(ingestion, bronze, "", "Salvar dados dos sistemas operacionais de origem")
+Rel(tasks_silver, bronze, "", "Ler dados")
+Rel(tasks_silver, silver, "", "Salvar dados")
+Rel(tasks_gold, gold, "", "Salvar dados")
+Rel(tasks_gold, silver, "", "Ler dados")
+
+Rel(user, dashboard, "", "Navegação")
+Rel(dashboard, gold, "", "Acesso a dados")
+
+@enduml

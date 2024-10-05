@@ -1,0 +1,1 @@
+select * from {{ source("db_origem", "tb_tipo_cliente")}} 
