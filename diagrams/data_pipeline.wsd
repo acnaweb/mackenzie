@@ -1,0 +1,50 @@
+@startuml data_pipeline
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+title Data Pipeline - Diagramas
+footer Disponível em: https://github.com/acnaweb/mackenzie
+LAYOUT_LEFT_RIGHT()
+
+Person(user, "Usuário")
+
+System_Boundary(olap, "OLAP") {
+
+    System_Boundary(dataviz, "Data Visualization") {
+        Container(dash, "Dashboard", "Qlik, Power BI", "Tool for dashboard")
+    }
+
+    System_Boundary(analytics, "Data Analytics") {
+        ContainerDb(dw, "Data Warehouse", "Microsoft SQL/Oracle")
+        Container(transformation, "Transformation", "dbt", "Padronização e limpeza")
+    }
+
+    System_Boundary(ingestion, "Data Ingestion") {
+        ContainerDb(raw, "Raw")
+        Container(extraction, "Extraction", "airbyte", "Extração de dados")
+    }
+}
+
+System_Boundary(oltp, "OLTP") {
+    ContainerDb(external_db, "External databases", "SAP, Totvs")
+    ContainerQueue(external_queue, "Data Stream", "Kafka, RabitMQ")
+    Container(external_api, "APIs")
+    ContainerDb(external_storage, "External storage", "GDrive, Dropbox")
+}
+
+Rel(external_db, extraction, "Coletar dados")
+Rel(external_queue, extraction, "Coletar dados")
+Rel(external_api, extraction, "Coletar dados")
+Rel(external_storage, extraction, "Coletar dados")
+Rel(extraction, raw, "Persistir dados")
+
+Rel(oltp, olap, "Fornecer dados")
+Rel(ingestion, analytics, "Atualizar dados")
+
+Rel(user, dash, "Visualizar")
+Rel(dash, dw, "Carregar dados")
+
+Rel(transformation, dw, "Persistir dados transformados")
+Rel(raw, transformation, "Coletar dados")
+
+
+
+@enduml

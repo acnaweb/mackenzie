@@ -2,6 +2,10 @@
 
 MBA em DevOps Engineering and Cloud Solutions
 
+## Data Pipeline
+
+![](out/diagrams/data_pipeline/data_pipeline.svg)
+
 ## Pessoas
 
 ###  [Apresentações](docs/apresentacao.md)
@@ -44,5 +48,10 @@ MBA em DevOps Engineering and Cloud Solutions
 - [Makefile in Windows](https://medium.com/@samsorrahman/how-to-run-a-makefile-in-windows-b4d115d7c516)
 - [Jinja: Template Engine](https://jinja.palletsprojects.com/en/3.1.x/)
 - https://docs.getdbt.com/docs/build/custom-schemas
+- https://www.databricks.com/glossary/medallion-architecture
+- https://rivery.io/data-learning-center/types-of-etl-data-transformation/
+- https://github.com/plantuml-stdlib/C4-PlantUML
+- https://c4model.com/
+
 
 
