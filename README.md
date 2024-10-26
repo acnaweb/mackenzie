@@ -6,6 +6,9 @@ MBA em DevOps Engineering and Cloud Solutions
 
 ![](out/diagrams/data_pipeline/data_pipeline.svg)
 
+![](https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2019/12/12/ETLandELTRedshift1.png)
+- https://aws.amazon.com/pt/compare/the-difference-between-etl-and-elt/
+
 ## Pessoas
 
 ###  [Apresentações](docs/apresentacao.md)
@@ -28,6 +31,12 @@ MBA em DevOps Engineering and Cloud Solutions
 - Perguntas/Dúvidas/Desafios
 - Soluções
 - Implementação da solução
+
+### Install PlantUML Ubuntu/Code Space
+
+```sh
+pip3 install pydot graphviz
+```
 
 ## Anotações de aula
 

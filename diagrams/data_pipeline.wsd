@@ -5,21 +5,26 @@ footer Disponível em: https://github.com/acnaweb/mackenzie
 LAYOUT_LEFT_RIGHT()
 
 Person(user, "Usuário")
+Person(data_scientist, "Cientista de Dados")
 
 System_Boundary(olap, "OLAP") {
+
+    System_Boundary(ml, "Machine Learning") {
+        Container(ia, "ML/IA", "Tensor Flow/Sklearning", "")
+    }
 
     System_Boundary(dataviz, "Data Visualization") {
         Container(dash, "Dashboard", "Qlik, Power BI", "Tool for dashboard")
     }
 
     System_Boundary(analytics, "Data Analytics") {
-        ContainerDb(dw, "Data Warehouse", "Microsoft SQL/Oracle")
+        ContainerDb(dw, "Data Warehouse (gold)", "Microsoft SQL/Oracle")
         Container(transformation, "Transformation", "dbt", "Padronização e limpeza")
     }
 
-    System_Boundary(ingestion, "Data Ingestion") {
-        ContainerDb(raw, "Raw")
-        Container(extraction, "Extraction", "airbyte", "Extração de dados")
+    System_Boundary(ingestion, "Data Ingestion (EL)") {
+        ContainerDb(raw, "Raw (bronze)")
+        Container(extraction, "Extraction", "airbyte", "Extração e carga de dados")
     }
 }
 
@@ -41,6 +46,9 @@ Rel(ingestion, analytics, "Atualizar dados")
 
 Rel(user, dash, "Visualizar")
 Rel(dash, dw, "Carregar dados")
+
+Rel(data_scientist, ia, "Criar algoritmos de machine learning")
+Rel(ia, dw, "Carregar dataset para treinamento")
 
 Rel(transformation, dw, "Persistir dados transformados")
 Rel(raw, transformation, "Coletar dados")
