@@ -1,0 +1,32 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+title "Data Pipeline"
+footer Disponível em: https://github.com/fabiosantos-info/mackenzie-DBRE
+
+LAYOUT_LEFT_RIGHT()
+
+Person(User, "Usuário")
+
+System_Boundary(olap, "OLAP") {
+
+System_Boundary(dataviz, "Data Visualization") {
+    Container(dash, "Dashboard", "Qlik, Power BI", "Tool for Dashboard")
+}
+
+System_Boundary(persistence, "Persistence") {
+    ContainerDb(dw, "Data Warehouse", "Microsoft SQL/Oracle")
+    Container(transformation, "Transformation", "dbt", "Padronização e limpeza")
+}
+
+}
+
+System_Boundary(oltp, "OLTP") {
+    ContainerDb(db_erp, "Database ERP", "SAP, Totvs")    
+}
+
+
+Rel(User, dash, "Visualiza")
+Rel(dash, dw, "Carregar dados")
+Rel(oltp, olap, "Fornecer dados")
+Rel(transformation, dw, "Persistir dados Transformados")
+@enduml
