@@ -1,7 +1,7 @@
 @startuml data_pipeline
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 title Data Pipeline - Diagramas
-footer Disponível em: https://github.com/acnaweb/mackenzie
+footer Disponível em: https://github.com/fabiosantos-info/mackenzie-DBRE
 LAYOUT_LEFT_RIGHT()
 
 Person(user, "Usuário")
