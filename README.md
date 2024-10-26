@@ -61,6 +61,7 @@ pip3 install pydot graphviz
 - https://rivery.io/data-learning-center/types-of-etl-data-transformation/
 - https://github.com/plantuml-stdlib/C4-PlantUML
 - https://c4model.com/
+- https://dataengineering.wiki/Index
 
 
 
