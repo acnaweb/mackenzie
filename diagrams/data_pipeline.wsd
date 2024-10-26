@@ -19,15 +19,15 @@ System_Boundary(olap, "OLAP") {
     }
 
     System_Boundary(analytics, "Data Analytics") {
-        ContainerDb(silver, "Trusted (silver)", "")
+        ContainerDb(silver, "Trusted (silver)", "Cloud Storage/(Parquet/Avro)")
         Container(transformation_bronze_silver, "Transformation", "dbt", "Padronização e limpeza")
         
-        ContainerDb(gold, "Data Warehouse (gold)", "Microsoft SQL/Oracle")
+        ContainerDb(gold, "Data Warehouse (gold)", "Bigquery/Snowflake/Redshift")
         Container(transformation_silver_gold, "Transformation", "dbt", "Padronização e limpeza")
     }
 
     System_Boundary(ingestion, "Data Ingestion (EL)") {
-        ContainerDb(bronze, "Raw (bronze)")
+        ContainerDb(bronze, "Raw (bronze)", "Cloud Storage")
         Container(extraction, "Extraction", "airbyte", "Extração e carga de dados")
     }
 }
@@ -56,8 +56,11 @@ Rel(transformation_silver_gold, gold, "Persistir dados transformados")
 
 Rel(user, dash, "Visualizar")
 Rel(dash, gold, "Carregar dados")
+Rel(dash, silver, "Carregar dados")
+
 
 Rel(data_scientist, ia, "Criar algoritmos de machine learning")
 Rel(ia, gold, "Carregar dataset para treinamento")
+Rel(ia, silver, "Carregar dataset para treinamento")
 
 @enduml

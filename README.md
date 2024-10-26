@@ -62,6 +62,7 @@ pip3 install pydot graphviz
 - https://github.com/plantuml-stdlib/C4-PlantUML
 - https://c4model.com/
 - https://dataengineering.wiki/Index
-
+- https://learn.microsoft.com/pt-br/power-bi/guidance/star-schema
+- https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/
 
 
