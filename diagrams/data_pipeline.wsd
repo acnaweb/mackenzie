@@ -18,15 +18,15 @@ System_Boundary(olap, "OLAP") {
     }
     System_Boundary(analytics, "Data Analytics") {
 
-        ContainerDb(silver, "Trusted (Silver)", "")
+        ContainerDb(silver, "Trusted (Silver)", "Cloud Storage/(Parquet/Avro)")
         Container(transformation_bronze_silver, "Transformation", "dbt", "Padronização e limpeza")
 
-        ContainerDb(gold, "Data Warehouse (Gold)", "Microsoft SQL/Oracle")
+        ContainerDb(gold, "Data Warehouse (Gold)", "Bigquery/snowflake/Redshift")
         Container(transformation_silver_gold, "Transformation", "dbt", "Padronização e limpeza")
     }
 
     System_Boundary(ingestion, "Data Ingestion(EL)") {
-        ContainerDb(bronze, "Raw (Bronze)" )
+        ContainerDb(bronze, "Raw (Bronze)", "Cloud Storage" )
         Container(extraction, "Extraction", "airbyte", "Extração e carga de dados")
     }
 }
