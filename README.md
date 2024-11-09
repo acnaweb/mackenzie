@@ -35,6 +35,7 @@ MBA em DevOps Engineering and Cloud Solutions
 ### Install PlantUML Ubuntu/Code Space
 
 ```sh
+sudo apt update
 pip3 install pydot graphviz
 ```
 
@@ -64,5 +65,5 @@ pip3 install pydot graphviz
 - https://dataengineering.wiki/Index
 - https://learn.microsoft.com/pt-br/power-bi/guidance/star-schema
 - https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/
-
+- https://github.com/acnaweb/iac
 
