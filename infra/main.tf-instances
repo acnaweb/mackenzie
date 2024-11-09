@@ -1,0 +1,9 @@
+resource "aws_instance" "instance1" {
+    count = 10
+    ami = "ami-063d43db0594b521b"
+    instance_type = "t2.micro"
+
+    tags = {
+      Name = "mackenzie-instance-${count.index}"
+    }
+}
