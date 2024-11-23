@@ -39,6 +39,40 @@ sudo apt update
 pip3 install pydot graphviz
 ```
 
+### Linux (notas)
+
+```
+sudo apt update
+sudo apt upgrade
+
+cd /etc/apt
+ls -la
+cat sources.lst
+
+sudo apt list python* | grep install
+which python3
+sudo ln -s /usr/bin/python3 /usr/bin/python
+
+# path atual
+pwd 
+
+whoami
+
+cd ~
+
+mkdir projects
+
+- SSH
+chave privada = /home/ac/.ssh/id_rsa
+chave pública = /home/ac/.ssh/id_rsa.pub (compartilho)
+ssh-keygen -t rsa 
+
+
+ls ~/.ssh -la
+cat ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+```
+
 ## Anotações de aula
 
 - [Data Ingestion/Airbyte: Site Oficial](https://airbyte.com/)
@@ -66,4 +100,6 @@ pip3 install pydot graphviz
 - https://learn.microsoft.com/pt-br/power-bi/guidance/star-schema
 - https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/
 - https://github.com/acnaweb/iac
+- https://realpython.com/
+
 
