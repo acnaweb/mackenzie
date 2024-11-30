@@ -1,1 +1,2 @@
 dbt-mysql~=1.7
+dbt-oracle~=1.7
