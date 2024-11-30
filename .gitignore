@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,eclipse,jetbrains,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,eclipse,jetbrains,java
 
+credentials
+shared/**
+
 ### Eclipse ###
 .metadata
 bin/
