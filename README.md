@@ -39,6 +39,13 @@ sudo apt update
 pip3 install pydot graphviz
 ```
 
+### IaC (Docker)
+
+```
+docker build -t devops .
+docker run --name devops -it --rm -v ./shared:/shared devops /bin/bash
+```
+
 ### Linux (notas)
 
 ```
@@ -72,6 +79,13 @@ ls ~/.ssh -la
 cat ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 ```
+
+
+$env:VAR1="Mackenzie"
+$env:VAR1
+Get-ChildItem env:
+
+export $(cat .env | xargs)
 
 ## Anotações de aula
 
