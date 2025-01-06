@@ -44,7 +44,7 @@ pip3 install pydot graphviz
 
 ```
 docker build -t devops .
-docker run --name devops -it --rm -v ./shared:/shared devops /bin/bash
+docker run --name devops -it --rm -v ./infra:/shared devops /bin/bash
 ```
 
 ### Linux (notas)
